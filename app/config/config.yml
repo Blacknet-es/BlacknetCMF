@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -84,15 +84,15 @@ cmf_core:
 # Cmf Routing Configuration
 cmf_routing:
     dynamic:
+        persistence:
+            phpcr:
+                use_sonata_admin: false
         templates_by_class:
             Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page: AcmeDemoBundle:Page:index.html.twig
 
 # Menu Configuration
 knp_menu:
     twig: true
-
-sonata_block:
-    default_contexts: [cms]
 
 # Cmf Create Configuration
 fos_rest:
@@ -107,3 +107,11 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+#sonata
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.user.block.menu:
+        sonata.user.block.account:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]

@@ -1,3 +1,8 @@
+cms_inter_barcelona:
+    resource: "@CmsInterBarcelonaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 # AcmeDemoBundle routes (to be removed)
 _demo:
     resource: "@AcmeDemoBundle/Resources/config/routing.yml"
@@ -5,3 +10,12 @@ _demo:
 
 _cmf_create:
     resource: "@CmfCreateBundle/Resources/config/routing/rest.xml"
+#sonata
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin

@@ -8,6 +8,13 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\DoctrinePHPCRAdminBundle\SonataDoctrinePHPCRAdminBundle(),
+
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Symfony\Cmf\Bundle\TreeBrowserBundle\CmfTreeBrowserBundle(),
+
             // Symfony Standard Edition Bundles
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
@@ -39,6 +46,7 @@ class AppKernel extends Kernel
 
             // Remove this Bundle when using the SE as the basis for a new project
             new Acme\DemoBundle\AcmeDemoBundle(),
+            new Cms\InterBarcelonaBundle\CmsInterBarcelonaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
